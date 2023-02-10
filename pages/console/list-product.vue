@@ -19,7 +19,6 @@
               Detail
             </button>
             <div class="edit w-100 mb-1 text-center">
-              <!-- <a :href="data._id" class="text-white">Edit</a> -->
               <a href="javascript:void(0)" class="text-white" @click="goTo(data)">Edit</a>
             </div>
             <button class="delete text-white w-100" @click="onDelete(data._id)">
@@ -27,32 +26,48 @@
             </button>
           </td>
         </tr>
+        <tr v-if="isShowLoading">
+          <td colspan="3">
+            <p class="text-center py-5">
+              loading...
+            </p>
+          </td>
+        </tr>
       </table>
     </div>
-    <b-modal id="modal-center" hide-footer centered title="Detail">
-      <p class="my-4 text-center">Detail Product</p>
-    </b-modal>
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {}
+    return {
+      isShowLoading: true
+    }
   },
   computed: {
     productList () {
       return this.$store.state.product.listProduct
     }
   },
-  async mounted () {
-    await this.$store.dispatch('product/listProduct')
+  mounted () {
+    this.getListProduct()
   },
   methods: {
     goTo (data) {
       localStorage.setItem("data-product", JSON.stringify(data))
       const url = `/console/${data._id}`
       window.location.href = url
+    },
+    getListProduct () {
+      this.$store.dispatch('product/listProduct')
+        .then((res) => {
+          if (res) {
+            this.isShowLoading = false
+          }
+        }).catch((err) => {
+          throw new Error(err)
+        })
     },
     onDelete (id) {
       this.$swal({
@@ -91,6 +106,16 @@ export default {
 </script>
 
 <style lang="scss">
+  .alert-delete {
+    .swal2-actions {
+      button {
+        width: 100px;
+        height: 38px;
+        padding: 0px;
+        line-height: 38px;
+      }
+    }
+  }
   .list-product {
     table {
       tr {
