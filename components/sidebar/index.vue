@@ -18,11 +18,6 @@
           </b-nav>
         </nav>
       </div>
-      <template #footer="{ hide }">
-        <div class="d-flex bg-dark text-light align-items-center px-3 py-2">
-          <b-button variant="transparent" block class="text-white">Logout</b-button>
-        </div>
-      </template>
     </b-sidebar>
   </div>
 </template>

@@ -15,9 +15,6 @@
             {{ data.productDescription }}
           </td>
           <td style="width: 100px;">
-            <button class="detail text-white w-100 mb-1" v-b-modal.modal-center>
-              Detail
-            </button>
             <div class="edit w-100 mb-1 text-center">
               <a href="javascript:void(0)" class="text-white" @click="goTo(data)">Edit</a>
             </div>
@@ -77,7 +74,7 @@ export default {
         allowOutsideClick: false,
         title: 'Yakin ingin menghapus?',
         customClass: {
-          container: 'alert-adult',
+          container: 'alert-delete',
           actions: 'flex-nowrap w-full',
           confirmButton: 'w-5/12 btn-next',
           cancelButton: 'w-5/12 btn-back',
