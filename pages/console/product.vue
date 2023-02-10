@@ -146,9 +146,6 @@ export default {
         productWeight: '',
         productDescription: ''
       },
-      category: [
-        { text: 'Choose...', value: null }, 'Finansial', 'Investasi', 'Teknologi', 'Kesehatan', 'Lifestyle', 'Internasional', 'Entrepreneur'
-      ],
       mainCategory: [
         { value: null, text: 'Choose...' },
         { value: '1', text: 'Makanan' },
