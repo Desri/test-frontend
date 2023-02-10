@@ -1,7 +1,7 @@
 export default {
   listProduct ({ commit }) {
     return new Promise((resolve, reject) => {
-      this.$axios.$get(process.env.BASE_API + 'Products?page=1&integer=1')
+      this.$axios.$get('Products?page=1&integer=1')
         .then(function (response) {
           commit('SET_LIST_PRODUCT', response)
           resolve(response)
@@ -13,7 +13,7 @@ export default {
   },
   addProduct ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      this.$axios.$post(process.env.BASE_API + 'Product', payload)
+      this.$axios.$post('Product', payload)
         .then(function (response) {
           resolve(response)
         })
@@ -24,7 +24,7 @@ export default {
   },
   deleteProduct ({ commit }, id) {
     return new Promise((resolve, reject) => {
-      this.$axios.$delete(process.env.BASE_API + `Product/${id}`)
+      this.$axios.$delete(`Product/${id}`)
         .then(function (response) {
           resolve(response)
         })
@@ -36,7 +36,7 @@ export default {
   editProduct ({ commit }, payload) {
     return new Promise((resolve, reject) => {
       const data = JSON.parse(localStorage.getItem("data-product"))
-      this.$axios.$put(process.env.BASE_API + `Product/${data._id}`, payload)
+      this.$axios.$put(`Product/${data._id}`, payload)
         .then(function (response) {
           resolve(response)
         })

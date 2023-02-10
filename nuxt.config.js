@@ -49,13 +49,12 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     'vue-sweetalert2/nuxt',
-    '@nuxtjs/dotenv',
     '@nuxtjs/axios'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.BASE_API,
+    baseURL: 'https://oms.storesend.id/gateway/user.php/',
     proxy: false,
     proxyHeaders: false,
     credentials: false,
