@@ -2,7 +2,7 @@
   "name": "panel",
   "version": "1.0.0",
   "engines": {
-    "node": "18.14.0"
+    "node": "v18.14.0"
   },
   "private": true,
   "scripts": {
